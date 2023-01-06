@@ -37,13 +37,14 @@ steps:
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
-- template: template/build.yml
-  parameters:
-    buildConfigurations: 'Debug'
 
-- template: template/build.yml
+- template: templates/build.yml
   parameters:
-    buildConfigurations: 'Release'
+    buildConfiguration: 'Debug'
+
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
